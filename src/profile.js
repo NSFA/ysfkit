@@ -18,6 +18,9 @@ class Profile extends EventEmitter{
 	init(){
 		this.parseFile();
 	}
+	parseFile(stream){
+		
+	}
 }
 
 

@@ -3,6 +3,8 @@
 const program = require('commander');
 const path = require('path');
 const package = require('../package.json');
+const fs = require('fs');
+const cwd = process.cwd();
 
 program
 .version(package.version)
@@ -13,7 +15,8 @@ program
 
 // start config param
 if(program.config){
-	require('../src/server')(program.config);
+	var stream = fs.readFileSync(path.join(cwd, program.config));
+	require('../src/ysfkit')(stream);
 }else{
 	console.log("请指定正确的参数");
 }
