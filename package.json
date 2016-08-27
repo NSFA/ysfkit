@@ -2,7 +2,7 @@
   "name": "ysfkit",
   "version": "0.0.5",
   "description": "Automatic publishing platform for Sailfish",
-  "main": "index.js",
+  "main": "./src/ysfkit.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/NSFA/ysfkit#readme",
   "keywords": [
-    "koa",
-    "server",
+    "automatic",
+    "publish",
     "NSFA"
   ],
   "author": "波比(｡･∀･)ﾉﾞ",
