@@ -5,10 +5,10 @@
 
 
 ## 命令启动
-> ysfkit -h
+> ysfkit -h   ## 帮助命令
 
 -----
-> ysfkit -c config.vue
+> ysfkit -c config.vue    ## 初始化命令
 
 
 ```javascript
