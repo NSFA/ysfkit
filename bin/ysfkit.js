@@ -15,8 +15,14 @@ program
 
 // start config param
 if(program.config){
-	var stream = fs.readFileSync(path.join(cwd, program.config));
-	require('../src/ysfkit')(stream);
+	var stream = fs.readFileSync(path.join(cwd, program.config), 'utf-8'),
+		options = {};
+	try{
+		var options = require(path.join(cwd, './package.json'));
+	}catch(ex){}
+
+
+	require('../src/ysfkit')(stream, options);
 }else{
 	console.log("请指定正确的参数");
 }

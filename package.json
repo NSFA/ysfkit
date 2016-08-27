@@ -1,6 +1,6 @@
 {
   "name": "ysfkit",
-  "version": "0.0.5",
+  "version": "0.0.3",
   "description": "Automatic publishing platform for Sailfish",
   "main": "./src/ysfkit.js",
   "scripts": {
@@ -20,6 +20,7 @@
   "keywords": [
     "automatic",
     "publish",
+    "ysfkit",
     "NSFA"
   ],
   "author": "波比(｡･∀･)ﾉﾞ",

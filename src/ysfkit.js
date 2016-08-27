@@ -13,6 +13,7 @@ const path = require('path');
 
 class YSFKit extends EventEmitter {
 	constructor(config){
+		super(config);
 		this.init(config);
 	}
 	init(){
@@ -20,6 +21,6 @@ class YSFKit extends EventEmitter {
 	}
 }
 
-module.exports = function(configPath){
-	new YSFKit(new Profile(configPath));
+module.exports = function(stream, options){
+	new YSFKit(new Profile(stream, options));
 }

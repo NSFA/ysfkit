@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
 	<meta charset="UTF-8">
-	<title>七鱼基础组件包</title>
+	<title><%-name%></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="https://nsfi.github.io/ui-base/stylesheets/normalize.css" media="screen">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -10,6 +10,10 @@
 	<link rel="stylesheet" type="text/css" href="https://nsfi.github.io/ui-base/stylesheets/github-light.css" media="screen">
 	<link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
 	<link rel="stylesheet" href="https://codemirror.net/theme/solarized.css">
+
+    <% if (componentStyle) { %>
+    <link rel="stylesheet" href="<%-componentStyle%>">
+    <% } %>
 	<style>
 		.g-mnc{
 			display:flex;
@@ -104,11 +108,11 @@
 </head>
 <body>
 <section class="page-header">
-	<h1 class="project-name">Ui-base</h1>
-	<h2 class="project-tagline">七鱼基础组件包，以插件的方式开发</h2>
-	<a href="https://github.com/NSFI/ui-base" class="btn">View on GitHub</a>
-	<a href="https://github.com/NSFI/ui-base/zipball/master" class="btn">Download .zip</a>
-	<a href="https://github.com/NSFI/ui-base/tarball/master" class="btn">Download .tar.gz</a>
+	<h1 class="project-name"><%-name%></h1>
+	<h2 class="project-tagline"><%-description%></h2>
+	<a href="https://github.com/NSFI/<%-name%>" class="btn">View on GitHub</a>
+	<a href="https://github.com/NSFI/<%-name%>/zipball/master" class="btn">Download .zip</a>
+	<a href="https://github.com/NSFI/<%-name%>/tarball/master" class="btn">Download .tar.gz</a>
 </section>
 <section>
 	<div id="app"></div>
@@ -151,11 +155,7 @@
 
 	<!-- 组件模板 bd -->
 	<template id="component">
-<div class="m-demo">
-	<h1>这是一个栗子:</h1>
-	<input type="text" v-model="name">
-	<p>{{name}}</p>
-</div>
+<%-template%>
 	</template>
 
 	<!-- 组件模板 prefix -->
@@ -164,14 +164,7 @@ window.App = new Vue({
 			template:document.getElementById('component').innerHTML.trim(),
 	</template>
 	<template id="vue-bd">
-data:{
-	name : 1
-},
-methods:{
-	run: function(){
-		alert(this.name)
-	}
-}
+<%-app%>
 	</template>
 	<!-- 组件模板 suffix -->
 	<template id="vue-suffix">
