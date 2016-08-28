@@ -60,7 +60,9 @@ class Profile extends EventEmitter{
 		// 自动解析到当前执行环境的docs目录下
 		if(!fs.existsSync(path.join(cwdPath, './docs'))) fs.mkdir(path.join(cwdPath, './docs'));
 
-		fs.writeFileSync(filename, html)
+		fs.writeFileSync(filename, html);
+
+		console.log('文件生成完成...')
 
 	}
 

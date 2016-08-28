@@ -117,11 +117,11 @@
 <section>
 	<div id="app"></div>
 </section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.0.0-rc.3/vue.js"></script>
+<script src="https://nsfi.github.io/ui-base/sfvue.js"></script>
 <script src="https://codemirror.net/lib/codemirror.js"></script>
 <script src="https://regularjs.github.io/bower_components/codemirror/mode/javascript/javascript.js"></script>
 <script src="https://regularjs.github.io/bower_components/codemirror/mode/xml/xml.js"></script>
-<script src="./sfvue.js"></script>
 
 <section>
 	<!--主体模块-->
@@ -181,7 +181,7 @@ window.App = new Vue({
 				name : 1
 			}
 		},
-		ready: function(){
+		mounted: function(){
 			// initialize html editor
 			this.htmlEditor = CodeMirror(this.$el.querySelector('.html .bd'), {
 				mode: 'xml',
