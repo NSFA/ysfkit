@@ -1,4 +1,4 @@
-# 七鱼代码自动化发布工具
+# 七鱼组件代码自动化发布工具
 
 ## 命令安装
 > sudo npm install ysfkit -g
@@ -31,20 +31,20 @@
     </template>
 
 
-    <script>
-        var App = {
-            data: function () {
-                return {
-                    name : 1
-                }
-            },
-            methods: {
-                run : function(){
+    <component>
 
-                }
-            }
-        };
-    </script>
+    data: function () {
+        return {
+            name : 1
+        }
+    },
+    methods: {
+        run : function(){
+
+        }
+    }
+
+    </component>
 
 ```
 > 注: 其余配置信息回去解析 **package.json** 文件, 如果需要加载样式文件, 请在 **package.json** 中
@@ -53,4 +53,4 @@
 
 ## 栗子
 
-![七鱼代码自动化发布工具](./res/ysfkit.gif)
+![七鱼组件代码自动化发布工具](./res/ysfkit.gif)

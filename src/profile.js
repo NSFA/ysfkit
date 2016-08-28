@@ -27,7 +27,7 @@ class Profile extends EventEmitter{
 
 	}
 	parseFile(stream){
-		let tagExp = new RegExp("<template[^>]*>([\\s\\S]*?)<\\/template>[\\s\\S]*?<json[^>]*>([\\s\\S]*?)<\\/json>", "ig"),
+		let tagExp = new RegExp("<template[^>]*>([\\s\\S]*?)<\\/template>[\\s\\S]*?<component[^>]*>([\\s\\S]*?)<\\/component>", "ig"),
 			parseArray = tagExp.exec(stream),
 			template = parseArray[1], // template string
 			app = parseArray[2]; // script string

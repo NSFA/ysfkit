@@ -6,7 +6,7 @@
 </template>
 
 
-<json>
+<component>
 data: function () {
     return {
         name : 1
@@ -17,4 +17,4 @@ methods: {
 
     }
 }
-</json>
+</component>

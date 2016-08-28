@@ -8,7 +8,7 @@ const cwd = process.cwd();
 
 program
 .version(package.version)
-.description('七鱼代码自动化发布工具')
+.description('七鱼组件代码自动化发布工具')
 .option('-c, --config [value]', '加载配置文件')
 .parse(process.argv);
 
