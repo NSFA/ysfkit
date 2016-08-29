@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title><%-name%>测试</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <% if (componentStyle) { %>
     <link rel="stylesheet" href="<%-componentStyle%>">
     <% } %>
@@ -15,9 +14,9 @@
 </div>
 <script src="https://cdn.bootcss.com/vue/2.0.0-rc.3/vue.js"></script>
 <script src="https://nsfi.github.io/ui-base/sfvue.js"></script>
-<script scr="./<%-jsfile%>"></script>
+<script src="<%-filepath%>"></script>
 <script type="text/x-template" id="template">
-
+<%-template%>
 </script>
 
 <script>
@@ -29,7 +28,9 @@
             }
         },
         components:{
-
+            <% Object.keys(components).forEach(function(prop) { %>
+            '<%- prop %>' : <%- components[prop] %>,
+            <%});%>
         }
     })
 

@@ -14,7 +14,7 @@ program
 .parse(process.argv);
 
 // init config param
-var stream = fs.readFileSync(path.join(cwd, program.config), 'utf-8'),
+var stream = "",
 	options = {};
 
 try{
@@ -24,8 +24,10 @@ try{
 
 // start config param
 if(program.config){
+	stream = fs.readFileSync(path.join(cwd, program.config), 'utf-8');
 	require('../src/ysfkit')(stream, options, 'config');
 }else if(program.test){
+	stream = fs.readFileSync(path.join(cwd, program.test), 'utf-8');
 	require('../src/ysfkit')(stream, options, 'test')
 }else{
 	console.log("请指定正确的参数");
