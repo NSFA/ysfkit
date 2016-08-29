@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title><%-name%>测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <% if (componentStyle) { %>
+    <link rel="stylesheet" href="<%-componentStyle%>">
+    <% } %>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script src="https://cdn.bootcss.com/vue/2.0.0-rc.3/vue.js"></script>
+<script src="https://nsfi.github.io/ui-base/sfvue.js"></script>
+<script scr="./<%-jsfile%>"></script>
+<script type="text/x-template" id="template">
+
+</script>
+
+<script>
+    var App = Vue.extend({
+        template : '#template',
+        data: function(){
+            return {
+
+            }
+        },
+        components:{
+
+        }
+    })
+
+    new App().$mount('#app');
+</script>
+</body>
+</html>

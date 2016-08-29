@@ -16,6 +16,7 @@
 
   Options:
     -c,--config   配置文件
+    -t,--test     测试文件
     -h,--help     帮助列表
 ```
 
@@ -46,10 +47,41 @@
 
     </component>
 
+    <script>
+        global.TestConfig = {
+            name : 'Tooltip',
+            filepath : './tooltip.js',
+            tplpath: './src/tooltip.html'
+        }
+    </script>
+
 ```
 > 注: 其余配置信息回去解析 **package.json** 文件, 如果需要加载样式文件, 请在 **package.json** 中
 添加 `componentStyle` 配置属性, 值为全量地址。
 
+## webpack配置文件规范
+
+```javascript
+    module.exports =  {
+        entry: "./src/tooltip.js",
+        output: {
+            path: "./docs",         // 输出目录
+            filename: "tooltip.js", // 输出文件
+    		library : 'Tooltip'     // 命名空间规范
+        },
+        resolve:{
+            extensions: ['', '.js']
+        },
+        module: {
+            loaders: [
+                {test: /\.html/, exclude : /node_modules/, loader: 'html'},
+    			{test: /\.scss$/, exclude : /node_modules/, loader: "style!css!sass" }
+            ]
+        }
+    };
+```
+
+> 注意 **webpack.config.js** 文件的 `path` 又原先 `dist` 改为 `docs`
 
 ## 栗子
 

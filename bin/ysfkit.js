@@ -10,19 +10,23 @@ program
 .version(package.version)
 .description('七鱼组件代码自动化发布工具')
 .option('-c, --config [value]', '加载配置文件')
+.option('-t, --test [value]', '生成测试目录')
 .parse(process.argv);
+
+// init config param
+var stream = fs.readFileSync(path.join(cwd, program.config), 'utf-8'),
+	options = {};
+
+try{
+	var options = require(path.join(cwd, './package.json'));
+}catch(ex){}
 
 
 // start config param
 if(program.config){
-	var stream = fs.readFileSync(path.join(cwd, program.config), 'utf-8'),
-		options = {};
-	try{
-		var options = require(path.join(cwd, './package.json'));
-	}catch(ex){}
-
-
-	require('../src/ysfkit')(stream, options);
+	require('../src/ysfkit')(stream, options, 'config');
+}else if(program.test){
+	require('../src/ysfkit')(stream, options, 'test')
 }else{
 	console.log("请指定正确的参数");
 }

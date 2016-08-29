@@ -8,6 +8,7 @@
 
 const EventEmitter = require('events');
 const Profile = require('./profile');
+const TestProfile = require('./testProfile');
 const path = require('path');
 
 
@@ -21,6 +22,13 @@ class YSFKit extends EventEmitter {
 	}
 }
 
-module.exports = function(stream, options){
-	new YSFKit(new Profile(stream, options));
+module.exports = function(stream, options, type){
+	switch(type){
+		case 'config' :
+			new Profile(stream, options);
+			break;
+		case 'test' :
+			new TestProfile(stream, options);
+			break;
+	}
 }
