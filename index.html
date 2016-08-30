@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>ysfkit by NSFA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">ysfkit</h1>
+      <h2 class="project-tagline">七鱼简单化发布工具</h2>
+      <a href="https://github.com/NSFA/ysfkit" class="btn">View on GitHub</a>
+      <a href="https://github.com/NSFA/ysfkit/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/NSFA/ysfkit/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="七鱼组件代码自动化发布工具" class="anchor" href="#%E4%B8%83%E9%B1%BC%E7%BB%84%E4%BB%B6%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>七鱼组件代码自动化发布工具</h1>
+
+<h2>
+<a id="命令安装" class="anchor" href="#%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>命令安装</h2>
+
+<blockquote>
+<p>sudo npm install ysfkit -g</p>
+</blockquote>
+
+<h2>
+<a id="命令启动" class="anchor" href="#%E5%91%BD%E4%BB%A4%E5%90%AF%E5%8A%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>命令启动</h2>
+
+<blockquote>
+<p>ysfkit -h   ## 帮助命令</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+<p>ysfkit -c config.vue    ## 初始化命令</p>
+</blockquote>
+
+<div class="highlight highlight-source-js"><pre>  Usage<span class="pl-k">:</span>  ysfkit [options<span class="pl-k">...</span>]
+
+  Options<span class="pl-k">:</span>
+    <span class="pl-k">-</span>c,<span class="pl-k">--</span>config   配置文件
+    <span class="pl-k">-</span>t,<span class="pl-k">--</span>test     测试文件
+    <span class="pl-k">-</span>h,<span class="pl-k">--</span>help     帮助列表</pre></div>
+
+<h2>
+<a id="配置文件configvue" class="anchor" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6configvue" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>配置文件(config.vue)</h2>
+
+<div class="highlight highlight-text-html-basic"><pre>
+    &lt;<span class="pl-ent">template</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>m-kit<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">input</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>tlt<span class="pl-pds">"</span></span> <span class="pl-e">v-model</span>=<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">p</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>cnt<span class="pl-pds">"</span></span>&gt;{{name}}&lt;/<span class="pl-ent">p</span>&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">template</span>&gt;
+
+
+    &lt;<span class="pl-ent">component</span>&gt;
+
+    data: function () {
+        return {
+            name : 1
+        }
+    },
+    methods: {
+        run : function(){
+
+        }
+    }
+
+    &lt;/<span class="pl-ent">component</span>&gt;
+
+<span class="pl-s1">    &lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1">        <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">         * 测试文件生成配置</span></span>
+<span class="pl-s1"><span class="pl-c">         *</span></span>
+<span class="pl-s1"><span class="pl-c">         * @path  ./docs/test.html                  - 测试文件</span></span>
+<span class="pl-s1"><span class="pl-c">         * @param {String} template                 - 容器模板</span></span>
+<span class="pl-s1"><span class="pl-c">         * @param {String} filepath                 - 组件打包后文件相对路径</span></span>
+<span class="pl-s1"><span class="pl-c">         * @param {Object} components               - 组件组合 {key : scope}</span></span>
+<span class="pl-s1"><span class="pl-c">         */</span></span>
+<span class="pl-s1">        <span class="pl-c1">global</span>.<span class="pl-smi">TestConfig</span> <span class="pl-k">=</span> {</span>
+<span class="pl-s1">            template <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">`</span>&lt;div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                            &lt;tooltip placement="right"&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                                &lt;h1&gt;It's a title&lt;/h1&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                                &lt;div slot="content"&gt;It's a content!&lt;/div&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                            &lt;/tooltip&gt;</span></span>
+<span class="pl-s1"><span class="pl-s">                        &lt;/div&gt;<span class="pl-pds">`</span></span>,</span>
+<span class="pl-s1">            filepath <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>./tooltip.js<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">            components<span class="pl-k">:</span>{</span>
+<span class="pl-s1">                tooltip <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Tooltip<span class="pl-pds">'</span></span></span>
+<span class="pl-s1">            }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
+</pre></div>
+
+<blockquote>
+<p>注: 其余配置信息回去解析 <strong>package.json</strong> 文件, 如果需要加载样式文件, 请在 <strong>package.json</strong> 中
+添加 <code>componentStyle</code> 配置属性, 值为全量地址。</p>
+</blockquote>
+
+<h2>
+<a id="webpack配置文件规范" class="anchor" href="#webpack%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%84%E8%8C%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>webpack配置文件规范</h2>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c1">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span>  {
+        entry<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>./src/tooltip.js<span class="pl-pds">"</span></span>,
+        output<span class="pl-k">:</span> {
+            path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>./docs<span class="pl-pds">"</span></span>,         <span class="pl-c">// 输出目录</span>
+            filename<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>tooltip.js<span class="pl-pds">"</span></span>, <span class="pl-c">// 输出文件</span>
+            library <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Tooltip<span class="pl-pds">'</span></span>     <span class="pl-c">// 命名空间规范</span>
+        },
+        resolve<span class="pl-k">:</span>{
+            extensions<span class="pl-k">:</span> [<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>.js<span class="pl-pds">'</span></span>]
+        },
+        module<span class="pl-k">:</span> {
+            loaders<span class="pl-k">:</span> [
+                {test<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-cce">\.</span>html<span class="pl-pds">/</span></span>, exclude <span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>node_modules<span class="pl-pds">/</span></span>, loader<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>html<span class="pl-pds">'</span></span>},
+                {test<span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-cce">\.</span>scss<span class="pl-k">$</span><span class="pl-pds">/</span></span>, exclude <span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span>node_modules<span class="pl-pds">/</span></span>, loader<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>style!css!sass<span class="pl-pds">"</span></span> }
+            ]
+        }
+    };</pre></div>
+
+<blockquote>
+<p>注意 <strong>webpack.config.js</strong> 文件的 <code>path</code> 又原先 <code>dist</code> 改为 <code>docs</code></p>
+</blockquote>
+
+<h2>
+<a id="栗子" class="anchor" href="#%E6%A0%97%E5%AD%90" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>栗子</h2>
+
+<p><img src="./res/ysfkit.gif" alt="七鱼组件代码自动化发布工具"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/NSFA/ysfkit">ysfkit</a> is maintained by <a href="https://github.com/NSFA">NSFA</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
