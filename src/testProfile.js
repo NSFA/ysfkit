@@ -42,7 +42,7 @@ class TestProfile extends Profile {
 			filename = path.join(cwdPath, './docs/test.html');
 
 		// 自动解析到当前执行环境的docs目录下
-		if(!fs.existsSync(path.join(cwdPath, './docs'))) fs.mkdir(path.join(cwdPath, './docs'));
+		if(!fs.existsSync(path.join(cwdPath, './docs'))) fs.mkdirSync(path.join(cwdPath, './docs'));
 
 		fs.writeFileSync(filename, html);
 

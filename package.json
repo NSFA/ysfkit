@@ -1,6 +1,6 @@
 {
   "name": "ysfkit",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Automatic publishing platform for Sailfish",
   "main": "./src/ysfkit.js",
   "scripts": {
