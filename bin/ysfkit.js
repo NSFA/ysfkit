@@ -22,7 +22,7 @@ try{
 }catch(ex){}
 
 
-// start config param
+// start config
 if(program.config){
 	stream = fs.readFileSync(path.join(cwd, program.config), 'utf-8');
 	require('../src/ysfkit')(stream, options, 'config');
