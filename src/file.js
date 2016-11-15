@@ -1,30 +1,55 @@
-var fs = require('fs')
-var path = require('path')
-var rimraf = require('rimraf');
+'use strict';
+const fse = require('fs-extra');
+const fs = require('fs');
+const path = require('path');
+const EventEmitter = require('events').EventEmitter
 
-var cachePath = path.join(__dirname, '../.cache');
-var cache = {
-	save(filename, content) {
-		var filePath = path.join(cachePath, filename + '.vue')
 
-		try {
-			fs.writeFileSync(filePath, content, 'utf8')
-		} catch (err) {
-			console.error(err)
-		}
 
-		return filePath
-	},
-
-	clean() {
-		rimraf.sync(cachePath)
+class File extends EventEmitter{
+	constructor(options){
+		super(options);
+		this.options = options;
+		this.init(options);
 	}
+
+	init(options){
+		this.clean(options.path);
+	}
+
+	createFile (name, content){
+		var file = path.resolve(this.options.path, './component/'+name+'.vue')
+		fse.outputFileSync(file, content);
+	}
+	
+	copy (source){
+		fse.copySync(source, this.options.path)
+	}
+
+	clean(path){
+		fse.emptyDirSync(path)
+	}
+
+	readFile(path){
+		let ret =  fs.readFileSync(path) || new Buffer();
+
+		return ret.toString();
+	}
+
 }
 
-cache.clean()
 
-if (!fs.existsSync(cachePath)) {
-	fs.mkdirSync(cachePath)
+
+module.exports = function(options){
+	let filePath = path.resolve(__dirname, '../.docs/');
+
+	if (!fs.existsSync(filePath)) {
+		fs.mkdirSync(filePath)
+	}
+
+	let file = new File({
+		path : filePath
+	});
+	
+	return file;
 }
-
-module.exports = cache

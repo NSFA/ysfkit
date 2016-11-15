@@ -1,4 +1,4 @@
-<style lang="sass">
+<style lang="scss">
   .side-nav {
     width: 100%;
     box-sizing: border-box;

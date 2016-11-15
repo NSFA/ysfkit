@@ -1,99 +1,103 @@
-<style lang="sass">
-  .headerWrapper {
-    height: 80px;
-  }
-  .header {
-    height: 80px;
-    background-color: rgba(32, 160, 255, 1);
-    color: #fff;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    position: relative;
-
-    .container {
-      height: 100%;
+<style lang="scss">
+    .headerWrapper {
+        height: 80px;
     }
 
-    h1 {
-      margin: 0;
-      float: left;
-      font-size: 32px;
-      font-weight: normal;
-
-      a {
+    .header {
+        height: 80px;
+        background-color: rgba(32, 160, 255, 1);
         color: #fff;
-        text-decoration: none;
-        display: block;
-      }
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        position: relative;
 
-      span {
-        font-size: 12px;
-        display: inline-block;
-        width: 34px;
-        height: 18px;
-        border: 1px solid rgba(255, 255, 255, .5);
-        text-align: center;
-        line-height: 18px;
-        vertical-align: middle;
-        margin-left: 10px;
-        border-radius: 3px;
-      }
-    }
-    .nav {
-      float: right;
-      height: 100%;
-      line-height: 80px;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-    }
-    .nav-item {
-      margin: 0;
-      float: left;
-      list-style: none;
-      position: relative;
-      cursor: pointer;
-      margin-left: 20px;
-
-      a {
-        text-decoration: none;
-        color: #fff;
-        display: block;
-        padding: 0 20px;
-        opacity: .8;
-        &.active,
-        &:hover {
-          opacity: 1;
+        .container {
+            height: 100%;
         }
 
-        &.active::before {
-          content: '';
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 4px;
-          background:#99d2fc;
+        h1 {
+            margin: 0;
+            float: left;
+            font-size: 32px;
+            font-weight: normal;
+
+            a {
+                color: #fff;
+                text-decoration: none;
+                display: block;
+            }
+
+            span {
+                font-size: 12px;
+                display: inline-block;
+                width: 34px;
+                height: 18px;
+                border: 1px solid rgba(255, 255, 255, .5);
+                text-align: center;
+                line-height: 18px;
+                vertical-align: middle;
+                margin-left: 10px;
+                border-radius: 3px;
+            }
         }
-      }
+        .nav {
+            float: right;
+            height: 100%;
+            line-height: 80px;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-item {
+            margin: 0;
+            float: left;
+            list-style: none;
+            position: relative;
+            cursor: pointer;
+            margin-left: 20px;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+                display: block;
+                padding: 0 20px;
+                opacity: .8;
+                &.active,
+                &:hover {
+                    opacity: 1;
+                }
+
+                &.active::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 4px;
+                    background: #99d2fc;
+                }
+            }
+        }
     }
-  }
-  .header-fixed {
-    position: fixed;
-    top: -80px;
-    box-shadow: 0 2px 6px 0 rgba(50, 63, 87, 0.25);
-  }
-  .header-hangUp {
-    top: 0;
-  }
-  .header-home {
-    position: fixed;
-    top: 0;
-    background-color: rgba(32, 160, 255, 0);
-  }
+
+    .header-fixed {
+        position: fixed;
+        top: -80px;
+        box-shadow: 0 2px 6px 0 rgba(50, 63, 87, 0.25);
+    }
+
+    .header-hangUp {
+        top: 0;
+    }
+
+    .header-home {
+        position: fixed;
+        top: 0;
+        background-color: rgba(32, 160, 255, 0);
+    }
 </style>
 <template>
   <div class="headerWrapper">
@@ -111,7 +115,7 @@
     </header>
   </div>
 </template>
-<script>
+<script type="text/babel">
   export default {
     data() {
       return {

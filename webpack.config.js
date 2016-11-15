@@ -25,6 +25,10 @@ module.exports = {
 				loader: 'style!css'
 			},
 			{
+				test : /\.html/,
+				loader : 'html'
+			},
+			{
 				test: /\.md$/,
 				exclude: /node_modules/,
 				loader: path.resolve(__dirname, './src/loader.js')
@@ -42,9 +46,14 @@ module.exports = {
 			}
 		]
 	},
+	resolve: {
+		alias: {
+			vue: 'vue/dist/vue.js'
+		}
+	},
 	vue: {
 		loaders: {
-			sass: "vue-style-loader!css-loader!sass"
+			scss: "vue-style-loader!css-loader!sass"
 		}
 	}
 };

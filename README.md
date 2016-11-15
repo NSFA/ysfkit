@@ -7,97 +7,35 @@
 ## 命令启动
 > ysfkit -h   ## 帮助命令
 
------
-> ysfkit -c config.vue    ## 初始化命令
-
-
-```javascript
+```
   Usage:  ysfkit [options...]
 
   Options:
-    -c,--config   配置文件
-    -t,--test     测试文件
-    -h,--help     帮助列表
+    -c,--config         配置文件
+    -n,--name           组件名称
+    -m,--markdown
 ```
 
-## 配置文件(config.vue)
 
-```html
+## config.json
 
-    <template>
-        <div class="m-kit">
-            <input class="tlt" v-model="name">
-            <p class="cnt">{{name}}</p>
-        </div>
-    </template>
-
-
-    <component>
-
-    data: function () {
-        return {
-            name : 1
-        }
-    },
-    methods: {
-        run : function(){
-
-        }
+```json
+    {
+        "name" : "sf-button",
+        "path" : "./src/button.js", // 组件地址
+        "markdown": "./markdown.md"
     }
-
-    </component>
-
-    <script>
-        /**
-         * 测试文件生成配置
-         *
-         * @path  ./docs/test.html                  - 测试文件
-         * @param {String} template                 - 容器模板
-         * @param {String} filepath                 - 组件打包后文件相对路径
-         * @param {Object} components               - 组件组合 {key : scope}
-         */
-        global.TestConfig = {
-            template : `<div>
-                            <tooltip placement="right">
-                                <h1>It's a title</h1>
-                                <div slot="content">It's a content!</div>
-                            </tooltip>
-                        </div>`,
-            filepath : './tooltip.js',
-            components:{
-                tooltip : 'Tooltip'
-            }
-
-        }
-    </script>
-
-```
-> 注: 其余配置信息回去解析 **package.json** 文件, 如果需要加载样式文件, 请在 **package.json** 中
-添加 `componentStyle` 配置属性, 值为全量地址。
-
-## webpack配置文件规范
-
-```javascript
-    module.exports =  {
-        entry: "./src/tooltip.js",
-        output: {
-            path: "./docs",         // 输出目录
-            filename: "tooltip.js", // 输出文件
-    		library : 'Tooltip'     // 命名空间规范
-        },
-        resolve:{
-            extensions: ['', '.js']
-        },
-        module: {
-            loaders: [
-                {test: /\.html/, exclude : /node_modules/, loader: 'html'},
-    			{test: /\.scss$/, exclude : /node_modules/, loader: "style!css!sass" }
-            ]
-        }
-    };
 ```
 
-> 注意 **webpack.config.js** 文件的 `path` 又原先 `dist` 改为 `docs`
+## query
+
+```js
+    ysfkit -m "./markdown.md" -p "./src/button.js" -n "sf-button"
+```
+
+
+
+
 
 ## 栗子
 
