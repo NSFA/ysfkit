@@ -1,6 +1,4 @@
 <style lang="scss">
-    @import 'assets/styles/common.css';
-
     .page-component {
         padding-bottom: 95px;
     }

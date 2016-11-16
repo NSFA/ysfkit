@@ -18,7 +18,7 @@ class File extends EventEmitter{
 	}
 
 	createFile (name, content){
-		var file = path.resolve(this.options.path, './component/'+name+'.vue')
+		var file = path.resolve(this.options.path, './components/'+name+'.vue')
 		fse.outputFileSync(file, content);
 	}
 	

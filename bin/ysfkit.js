@@ -8,27 +8,29 @@ const cwd = process.cwd();
 
 program
 .version(package.version)
-.description('七鱼组件代码自动化发布工具')
+.description('七鱼组件自动化发布工具')
 .option('-c, --config [value]', '加载配置文件')
-.option('-t, --test [value]', '生成测试目录')
+.option('-p, --path [value]', '组件文件位置')
+.option('-n, --name [value]', '组件名称')
+.option('-m, --markdown [value]', 'Markdown文件目录')
 .parse(process.argv);
 
 // init config param
-var stream = "",
-	options = {};
-
-try{
-	var options = require(path.join(cwd, './package.json'));
-}catch(ex){}
-
+var options = {};
 
 // start config
 if(program.config){
-	stream = fs.readFileSync(path.join(cwd, program.config), 'utf-8');
-	require('../src/ysfkit')(stream, options, 'config');
-}else if(program.test){
-	stream = fs.readFileSync(path.join(cwd, program.test), 'utf-8');
-	require('../src/ysfkit')(stream, options, 'test')
+	try{
+		require('../src/ysfkit')(require(path.resolve(cwd, program.config)));
+	}catch(err){
+		console.error(err)
+	}
+}else if(program.path && program.name && program.markdown){
+	require('../src/ysfkit')(Object.assign(options, {
+		path : progran.path,
+		markdown : progran.markdown,
+		name : progran.name,
+	}))
 }else{
 	console.log("请指定正确的参数");
 }
