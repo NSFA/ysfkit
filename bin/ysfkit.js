@@ -27,9 +27,9 @@ if(program.config){
 	}
 }else if(program.path && program.name && program.markdown){
 	require('../src/ysfkit')(Object.assign(options, {
-		path : progran.path,
-		markdown : progran.markdown,
-		name : progran.name,
+		path : program.path,
+		markdown : program.markdown,
+		name : program.name,
 	}))
 }else{
 	console.log("请指定正确的参数");

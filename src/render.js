@@ -22,7 +22,7 @@ module.exports = function(componentPath, markdownPath, name){
 			name : name,
 			path : componentPath
 		});
-		fse.outputFileSync(path.resolve(__dirname, '../.docs/entry.js'), renderStr);
+		fse.outputFileSync(path.resolve(__dirname, '../docs/entry.js'), renderStr);
 
 	}catch(err){
 		console.error(err)

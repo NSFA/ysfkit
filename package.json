@@ -1,11 +1,8 @@
 {
   "name": "ysfkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Automatic publish platform for Sailfish",
   "main": "./src/ysfkit.js",
-  "scripts": {
-    "build": "webpack -w webpack.config.js"
-  },
   "bin": {
     "ysfkit": "./bin/ysfkit.js"
   },

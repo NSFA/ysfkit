@@ -5,13 +5,10 @@ const fs = require('fs');
 
 var buildConfig = function(outdir){
 	return {
-		entry: path.resolve(__dirname, "../.docs/entry.js"),
+		entry: path.resolve(__dirname, "../docs/entry.js"),
 		output: {
 			path: `${outdir}`,
 			filename: "app.js"
-		},
-		resolveLoader: {
-			root: path.join(__dirname, './node_modules'),
 		},
 		module: {
 			loaders: [

@@ -41,7 +41,7 @@ class File extends EventEmitter{
 
 
 module.exports = function(options){
-	let filePath = path.resolve(__dirname, '../.docs/');
+	let filePath = path.resolve(__dirname, '../docs/');
 
 	if (!fs.existsSync(filePath)) {
 		fs.mkdirSync(filePath)
