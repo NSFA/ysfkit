@@ -1,6 +1,6 @@
 {
   "name": "ysfkit",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Automatic publish platform for Sailfish",
   "main": "./src/ysfkit.js",
   "bin": {
@@ -19,7 +19,6 @@
     "NSFA"
   ],
   "dependencies": {
-    "ui-style": "*",
     "commander": "^2.9.0",
     "vue": "^2.0.5",
     "ejs": "^2.5.1",

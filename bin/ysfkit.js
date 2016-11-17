@@ -5,6 +5,7 @@ const path = require('path');
 const package = require('../package.json');
 const fs = require('fs');
 const cwd = process.cwd();
+const npmInstall = require('../src/npm.js');
 
 program
 .version(package.version)
@@ -13,6 +14,7 @@ program
 .option('-p, --path [value]', '组件文件位置')
 .option('-n, --name [value]', '组件名称')
 .option('-m, --markdown [value]', 'Markdown文件目录')
+.option('-i, --install [value]', 'install node package')
 .parse(process.argv);
 
 // init config param
@@ -31,6 +33,12 @@ if(program.config){
 		markdown : program.markdown,
 		name : program.name,
 	}))
+}else if(program.install){
+	if(typeof program.install == "boolean"){
+		npmInstall();
+	}else if (typeof program.install == "string"){
+		npmInstall(program.install);
+	}
 }else{
 	console.log("请指定正确的参数");
 }
