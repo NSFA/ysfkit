@@ -35,6 +35,8 @@ if(program.config){
 	}))
 }else if(program.install){
 	if(typeof program.install == "boolean"){
+		console.log('初始化安装会有点慢, 要在执行目录安装NPM依赖包(题暂时没有好的解决方案)。');
+		console.log('好的解决方案至: https://github.com/NSFA/ysfkit/issues');
 		npmInstall();
 	}else if (typeof program.install == "string"){
 		npmInstall(program.install);
