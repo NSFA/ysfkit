@@ -2,6 +2,8 @@
 const render = require('./render.js');
 const path = require('path');
 const webpack = require('./webpack.js');
+const fse = require('fs-extra');
+const fs = require('fs');
 
 /**
  * ysfkit 主应用程序
@@ -13,7 +15,15 @@ const webpack = require('./webpack.js');
 module.exports = function(options){
 	options.path = path.resolve(process.cwd(), options.path);
 	options.markdown = path.resolve(process.cwd(), options.markdown);
-	
-	render(options.path, options.markdown, options.name);
-	webpack(process.cwd())
+	options.workspace = options.workspace || path.resolve(process.cwd(),'./.docs/');
+	options.outpath = options.outpath || process.cwd();
+	render(options.path, options.markdown, options.name, options.workspace);
+
+	webpack({
+		workspace : options.workspace,
+		outpath : options.outpath
+	}, function(){
+		fse.emptyDirSync(options.workspace);
+		fs.rmdirSync(options.workspace)
+	})
 }

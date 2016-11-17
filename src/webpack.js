@@ -3,11 +3,11 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 
-var buildConfig = function(outdir){
+var buildConfig = function(config){
 	return {
-		entry: path.resolve(__dirname, "../docs/entry.js"),
+		entry: path.resolve(config.workspace,"./entry.js"),
 		output: {
-			path: `${outdir}`,
+			path: `${config.outpath}`,
 			filename: "app.js"
 		},
 		module: {
@@ -61,12 +61,14 @@ var buildConfig = function(outdir){
 };
 
 
-module.exports = function(outdir){
-	let config = buildConfig(outdir);
+module.exports = function(options, callback){
+	let config = buildConfig(options);
+	callback = callback || function(){}
 	var compiler = webpack(config);
 	compiler.run(function(err, stats){
 		if(!err){
 			console.log('file is created');
+			callback();
 		}
 	})
 }

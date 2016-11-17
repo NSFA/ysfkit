@@ -41,14 +41,13 @@ class File extends EventEmitter{
 
 
 module.exports = function(options){
-	let filePath = path.resolve(__dirname, '../docs/');
 
-	if (!fs.existsSync(filePath)) {
-		fs.mkdirSync(filePath)
+	if (!fs.existsSync(options.workspace)) {
+		fs.mkdirSync(options.workspace)
 	}
 
 	let file = new File({
-		path : filePath
+		path : options.workspace
 	});
 	
 	return file;
