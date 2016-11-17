@@ -22,7 +22,7 @@ module.exports = function(deps){
 	if(deps){
 		run('npm install '+deps);
 	}else{
-		run('cnpm install '+depList.join(' ')+'-g');
+		run('cnpm install '+depList.join(' '));
 	}
 
 }
