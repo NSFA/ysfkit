@@ -19,8 +19,11 @@ module.exports = function(options){
 	options.outpath = options.outpath || process.cwd();
 
 	render(options.path, options.markdown, options.name, options.workspace);
-	fse.copySync(path.resolve(__dirname, './.babelrc'), options.workspace);
-	
+
+	// temp babelrc
+	fs.writeFileSync(path.resolve(options.outpath, './.babelrc'), JSON.stringify({
+		"presets": [["es2015", { "loose": true }]]
+	}));
 
 	webpack({
 		workspace : options.workspace,
