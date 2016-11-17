@@ -13,7 +13,8 @@ const fs = require('fs');
  */
 
 module.exports = function(options){
-	options.path = path.resolve(process.cwd(), options.path);
+	options.path = /\\/g.test(options.path) ? path.resolve(process.cwd(), options.path) : options.path;
+
 	options.markdown = path.resolve(process.cwd(), options.markdown);
 	options.workspace = options.workspace || path.resolve(process.cwd(),'./docs/');
 	options.outpath = options.outpath || process.cwd();
@@ -21,9 +22,12 @@ module.exports = function(options){
 	render(options.path, options.markdown, options.name, options.workspace);
 
 	// temp babelrc
-	fs.writeFileSync(path.resolve(options.outpath, './.babelrc'), JSON.stringify({
-		"presets": [["es2015", { "loose": true }]]
-	}));
+	if(!fs.existsSync(path.resolve(options.outpath, './.babelrc'))){
+		fs.writeFileSync(path.resolve(options.outpath, './.babelrc'), JSON.stringify({
+			"presets": [["es2015", { "loose": true }]]
+		}));
+	}
+
 
 	webpack({
 		workspace : options.workspace,
