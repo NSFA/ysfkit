@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-	entry: "./pages/entry.js",
+	entry: "./docs/entry.js",
 	output: {
 		path: "./dist",
 		filename: "app.js"
