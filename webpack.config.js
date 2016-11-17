@@ -6,9 +6,6 @@ module.exports = {
 		path: "./dist",
 		filename: "app.js"
 	},
-	resolveLoader: {
-		root: path.join(__dirname, './node_modules'),
-	},
 	module: {
 		loaders: [
 			{
@@ -27,11 +24,6 @@ module.exports = {
 			{
 				test : /\.html/,
 				loader : 'html'
-			},
-			{
-				test: /\.md$/,
-				exclude: /node_modules/,
-				loader: path.resolve(__dirname, './src/loader.js')
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,

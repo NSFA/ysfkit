@@ -30,11 +30,6 @@ var buildConfig = function(config){
 					loader : 'html'
 				},
 				{
-					test: /\.md$/,
-					exclude: /node_modules/,
-					loader: path.resolve(__dirname, './loader.js')
-				},
-				{
 					test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
 					loader: 'file'
 				},
