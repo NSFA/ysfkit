@@ -29,8 +29,8 @@
 
 ```json
     {
-        "name" : "sf-button",         // markdown 组件名称
-        "path" : "sf-button",         // 组件包名称
+        "name" : "sf-button",
+        "path" : "sf-button",
         "markdown": "./markdown.md"
     }
 ```
