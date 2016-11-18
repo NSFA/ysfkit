@@ -1,4 +1,10 @@
 'use strict';
+/**
+ * loader
+ *
+ * @author:   波比(｡･∀･)ﾉﾞ
+ * @date:     2016-11-18  上午9:50
+ */
 const VueLoader = require('./vueLoader');
 
 module.exports = function(source){

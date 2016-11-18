@@ -1,4 +1,11 @@
 'use strict';
+/**
+ * npm install package
+ *
+ * @author:   波比(｡･∀･)ﾉﾞ
+ * @date:     2016-11-18  上午9:34
+ */
+
 const exec = require('child_process').exec;
 
 let dep = require('../package.json').dependencies;

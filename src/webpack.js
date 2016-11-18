@@ -1,4 +1,10 @@
 'use strict';
+/**
+ * webpack
+ *
+ * @author:   波比(｡･∀･)ﾉﾞ
+ * @date:     2016-11-18  上午9:35
+ */
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');

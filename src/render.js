@@ -1,4 +1,10 @@
 'use strict';
+/**
+ * render 
+ *
+ * @author:   波比(｡･∀･)ﾉﾞ
+ * @date:     2016-11-18  上午9:34
+ */
 
 const VueLoader = require('./vueLoader');
 const ejs = require('ejs');

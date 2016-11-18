@@ -1,16 +1,16 @@
 'use strict';
-const render = require('./render.js');
-const path = require('path');
-const webpack = require('./webpack.js');
-const fse = require('fs-extra');
-const fs = require('fs');
-
 /**
  * ysfkit 主应用程序
  *
  * @author:   波比(｡･∀･)ﾉﾞ
  * @date:     2016-08-27  下午2:46
  */
+
+const render = require('./render.js');
+const path = require('path');
+const webpack = require('./webpack.js');
+const fse = require('fs-extra');
+const fs = require('fs');
 
 module.exports = function(options){
 	options.path = /\\/g.test(options.path) ? path.resolve(process.cwd(), options.path) : options.path;

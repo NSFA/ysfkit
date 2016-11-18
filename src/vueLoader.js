@@ -1,4 +1,12 @@
 'use strict';
+/**
+ * vueLoader
+ * config code block
+ *
+ * @author:   波比(｡･∀･)ﾉﾞ
+ * @date:     2016-11-18  上午9:34
+ */
+
 const EventEmitter = require('events').EventEmitter;
 const cheerio = require('cheerio');
 const path = require('path');

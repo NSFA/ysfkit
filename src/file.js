@@ -1,10 +1,15 @@
 'use strict';
+/**
+ * file 文件处理
+ *
+ * @author:   波比(｡･∀･)ﾉﾞ
+ * @date:     2016-11-18  上午9:34
+ */
+
 const fse = require('fs-extra');
 const fs = require('fs');
 const path = require('path');
 const EventEmitter = require('events').EventEmitter
-
-
 
 class File extends EventEmitter{
 	constructor(options){
